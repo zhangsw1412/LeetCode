@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by zhangsw on 2017/9/17.
@@ -19,6 +21,7 @@ public class TwoSum
 class Solution
 {
 	//自己写的第一个版本
+	/*
 	public int[] twoSum(int[] nums, int target)
 	{
 		int arrayLength = nums.length;
@@ -37,5 +40,26 @@ class Solution
 			}
 		}
 		return null;
+	}
+	*/
+
+	//两次遍历的哈希表
+	public int[] twoSum(int[] nums, int target)
+	{
+		Map<Integer, Integer> numMap = new HashMap<>();
+		for (int i = 0; i < nums.length; ++i)
+		{
+			numMap.put(nums[i], i);
+		}
+		int difference;
+		for (int i = 0; i < nums.length; ++i)
+		{
+			difference = target - nums[i];
+			if (numMap.containsKey(difference) && (numMap.get(difference) != i))
+			{
+				return new int[]{i, numMap.get(difference)};
+			}
+		}
+		throw new IllegalArgumentException("No two sum solution");
 	}
 }
