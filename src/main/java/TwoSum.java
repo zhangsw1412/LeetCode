@@ -44,6 +44,7 @@ class Solution
 	*/
 
 	//两次遍历的哈希表
+	/*
 	public int[] twoSum(int[] nums, int target)
 	{
 		Map<Integer, Integer> numMap = new HashMap<>();
@@ -59,6 +60,24 @@ class Solution
 			{
 				return new int[]{i, numMap.get(difference)};
 			}
+		}
+		throw new IllegalArgumentException("No two sum solution");
+	}
+	*/
+
+	//一次遍历的哈希表，一边插入一边回溯寻找是否有匹配
+	public int[] twoSum(int[] nums, int target)
+	{
+		Map<Integer, Integer> numMap = new HashMap<>();
+		int difference;
+		for (int i = 0; i < nums.length; ++i)
+		{
+			difference = target - nums[i];
+			if (numMap.containsKey(difference) && (numMap.get(difference) != i))
+			{
+				return new int[]{i, numMap.get(difference)};
+			}
+			numMap.put(nums[i], i);
 		}
 		throw new IllegalArgumentException("No two sum solution");
 	}
