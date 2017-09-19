@@ -9,7 +9,38 @@ public class ValidParentheses
 {
 	class Solution
 	{
+		//一种很巧妙的思路
+		public boolean isValid(String s)
+		{
+			if (s.length() % 2 == 1)
+			{
+				return false;
+			}
+			Stack<Character> stack = new Stack<>();
+			char[] chars = s.toCharArray();
+			for (char c : chars)
+			{
+				if (c == '(')
+				{
+					stack.push(')');
+				}
+				else if (c == '[')
+				{
+					stack.push(']');
+				}
+				else if (c == '{')
+				{
+					stack.push('}');
+				}
+				else if(stack.isEmpty() || (c != stack.pop()))
+				{
+					return false;
+				}
+			}
+			return stack.isEmpty();
+		}
 		//自己完成的版本
+		/*
 		public boolean isValid(String s)
 		{
 			if (s.length() % 2 == 1)
@@ -38,5 +69,6 @@ public class ValidParentheses
 			}
 			return stack.empty() ? true : false;
 		}
+		*/
 	}
 }
