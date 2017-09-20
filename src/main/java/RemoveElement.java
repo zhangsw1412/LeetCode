@@ -7,7 +7,21 @@ public class RemoveElement
 {
 	class Solution
 	{
+		//简洁的版本
+		public int removeElement(int[] nums, int val)
+		{
+			int j = 0;
+			for (int i = 0; i < nums.length; ++i)
+			{
+				if (nums[i] != val)
+				{
+					nums[j++] = nums[i];
+				}
+			}
+			return j;
+		}
 		//自己完成的版本
+		/*
 		public int removeElement(int[] nums, int val)
 		{
 			if (nums.length == 0)
@@ -37,5 +51,6 @@ public class RemoveElement
 			}
 			return nums.length - count;
 		}
+		*/
 	}
 }
