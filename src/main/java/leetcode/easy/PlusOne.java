@@ -1,3 +1,5 @@
+package leetcode.easy;
+
 /**
  * Created by zhangsw on 2017/9/26.
  */
