@@ -22,7 +22,18 @@ public class SameTree
 
 	class Solution
 	{
+		//两行版
+		public boolean isSameTree(TreeNode p, TreeNode q)
+		{
+			if (p == null && q == null)
+			{
+				return true;
+			}
+			return p != null && q != null && p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right,
+			                                                                                            q.right);
+		}
 		//自己的版本
+		/*
 		public boolean isSameTree(TreeNode p, TreeNode q)
 		{
 			if (p == null && q == null)
@@ -39,5 +50,6 @@ public class SameTree
 			}
 			return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 		}
+		*/
 	}
 }
