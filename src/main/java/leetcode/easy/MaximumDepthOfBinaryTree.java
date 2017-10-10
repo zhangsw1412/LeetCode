@@ -28,6 +28,8 @@ public class MaximumDepthOfBinaryTree
 			int left = maxDepth(root.left);
 			int right = maxDepth(root.right);
 			return left > right ? left + 1 : right + 1;
+			//一行版
+			//return root == null ? 0 : Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
 		}
 	}
 }
