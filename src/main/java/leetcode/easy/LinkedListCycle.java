@@ -21,6 +21,11 @@ public class LinkedListCycle
 
 	class Solution
 	{
+		/**
+		 * 用两个节点互相追，一个快节点，一个慢节点，快节点步长为2，慢节点步长为1
+		 * @param head 头节点
+		 * @return 是否有环
+		 */
 		public boolean hasCycle(ListNode head)
 		{
 			ListNode slow = head, fast = head;
