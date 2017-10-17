@@ -40,5 +40,54 @@ public class IntersectionOfTwoLinkedLists
 			}
 			return a;
 		}
+
+		/*
+		先计算两个链表的长度，把长的那个往后移，让起点后面剩下的节点数量相同
+		然后开始遍历，直到相等
+		 */
+		/*
+		public ListNode getIntersectionNode(ListNode headA, ListNode headB)
+		{
+			if (headA == null || headB == null)
+			{
+				return null;
+			}
+			int len_a = 1, len_b = 1, difference;
+			ListNode a = headA, b = headB;
+			while (a.next != null)
+			{
+				a = a.next;
+				++len_a;
+			}
+			while (b.next != null)
+			{
+				b = b.next;
+				++len_b;
+			}
+			difference = Math.abs(len_a - len_b);
+			a = headA;
+			b = headB;
+			if (len_a < len_b)
+			{
+				while (difference-- > 0)
+				{
+					b = b.next;
+				}
+			}
+			else
+			{
+				while (difference-- > 0)
+				{
+					a = a.next;
+				}
+			}
+			while (a != b)
+			{
+				a = a.next;
+				b = b.next;
+			}
+			return a;
+		}
+		*/
 	}
 }
