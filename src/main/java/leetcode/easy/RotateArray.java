@@ -7,7 +7,29 @@ public class RotateArray
 {
 	class Solution
 	{
+		//一种很棒的解法，将数组翻转，然后以k为分界，两边分别翻转
+		public void rotate(int[] a, int k)
+		{
+			k = k % a.length;
+			reverse(a, 0, a.length - 1);
+			reverse(a, 0, k - 1);
+			reverse(a, k, a.length - 1);
+		}
+
+		private void reverse(int[] a, int left, int right)
+		{
+			int temp;
+			while (left < right)
+			{
+				temp = a[left];
+				a[left] = a[right];
+				a[right] = temp;
+				++left;
+				--right;
+			}
+		}
 		//自己的版本
+		/*
 		public void rotate(int[] a, int k)
 		{
 			int len = a.length;
@@ -18,6 +40,7 @@ public class RotateArray
 			}
 			System.arraycopy(b, 0, a, 0, len);
 		}
+		*/
 		//这种解法的时间复杂度太高，超时了
 		/*
 		public void rotate(int[] a, int k)
