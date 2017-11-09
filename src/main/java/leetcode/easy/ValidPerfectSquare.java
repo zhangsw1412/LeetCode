@@ -10,12 +10,13 @@ public class ValidPerfectSquare
 		//利用完全平方数都是连续奇数的和这一性质来验证
 		public boolean isPerfectSquare(int n)
 		{
-			for(int i=1;n>0;i+=2)
+			for (int i = 1; n > 0; i += 2)
 			{
 				n -= i;
 			}
 			return n == 0;
 		}
+
 		/*
 		public boolean isPerfectSquare(int n)
 		{
@@ -37,6 +38,17 @@ public class ValidPerfectSquare
 				}
 			}
 			return false;
+		}
+
+		//上边算法的改进版
+		public boolean isPerfectSquare(int num)
+		{
+			long x = num;
+			while (x * x > num)
+			{
+				x = (x + num / x) >> 1;
+			}
+			return x * x == num;
 		}
 		*/
 	}
