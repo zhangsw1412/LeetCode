@@ -7,6 +7,16 @@ public class ValidPerfectSquare
 {
 	class Solution
 	{
+		//利用完全平方数都是连续奇数的和这一性质来验证
+		public boolean isPerfectSquare(int n)
+		{
+			for(int i=1;n>0;i+=2)
+			{
+				n -= i;
+			}
+			return n == 0;
+		}
+		/*
 		public boolean isPerfectSquare(int n)
 		{
 			if (n == 1)
@@ -28,5 +38,6 @@ public class ValidPerfectSquare
 			}
 			return false;
 		}
+		*/
 	}
 }
