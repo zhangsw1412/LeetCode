@@ -9,6 +9,20 @@ public class FindTheDifference
 {
 	class Solution
 	{
+		//位操作版
+		public char findTheDifference(String s, String t)
+		{
+			int n = t.length();
+			char c = t.charAt(n - 1);
+			for (int i = 0; i < n - 1; ++i)
+			{
+				c ^= s.charAt(i);
+				c ^= t.charAt(i);
+			}
+			return c;
+		}
+		//自己的版本
+		/*
 		public char findTheDifference(String s, String t)
 		{
 			char[] char_s = s.toCharArray();
@@ -24,5 +38,6 @@ public class FindTheDifference
 			}
 			return char_t[char_t.length - 1];
 		}
+		*/
 	}
 }
