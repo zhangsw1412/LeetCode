@@ -37,5 +37,13 @@ public class NumberOfSegmentsInAString
 			return res;
 		}
 		*/
+
+		//一行版
+		/*
+		public int countSegments(String s)
+		{
+			return ("x " + s).split(" +").length - 1;
+		}
+		*/
 	}
 }
