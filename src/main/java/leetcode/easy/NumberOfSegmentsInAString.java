@@ -15,9 +15,27 @@ public class NumberOfSegmentsInAString
 		}
 
 		//上面的写法可以改进一下
+		/*
 		public int countSegments(String s)
 		{
 			return s.trim().length() == 0 ? 0 : s.trim().split("\\s+").length;
 		}
+		*/
+
+		//直接版
+		/*
+		public int countSegments(String s)
+		{
+			int res = 0;
+			for (int i = 0; i < s.length(); i++)
+			{
+				if (s.charAt(i) != ' ' && (i == 0 || s.charAt(i - 1) == ' '))
+				{
+					res++;
+				}
+			}
+			return res;
+		}
+		*/
 	}
 }
