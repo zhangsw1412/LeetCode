@@ -1,5 +1,7 @@
 package leetcode.easy;
 
+import java.util.stream.IntStream;
+
 /**
  * Created by zhangsw on 2017/11/21.
  */
@@ -32,5 +34,13 @@ public class MinimumMovesToEqualArrayElements
 			}
 			return sum;
 		}
+
+		//一行版
+		/*
+		public int minMoves(int[] nums)
+		{
+			return IntStream.of(nums).sum() - nums.length * IntStream.of(nums).min().getAsInt();
+		}
+		*/
 	}
 }
