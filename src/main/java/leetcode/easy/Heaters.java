@@ -11,7 +11,8 @@ public class Heaters
 	{
 		/*
 		For each house, find its position between those heaters (thus we need the heaters array to be sorted).
-		Calculate the distances between this house and left heater and right heater, get a MIN value of those two values. Corner cases are there is no left or right heater.
+		Calculate the distances between this house and left heater and right heater, get a MIN value of those two
+		values. Corner cases are there is no left or right heater.
 		Get MAX value among distances in step 2. It's the answer.
 		这道题利用Arrays.binarySearch是关键
 		 */
@@ -35,5 +36,31 @@ public class Heaters
 
 			return result;
 		}
+
+		/*
+		普通寻找的方法
+		 */
+		/*
+		public class Solution
+		{
+			public int findRadius(int[] houses, int[] heaters)
+			{
+				Arrays.sort(houses);
+				Arrays.sort(heaters);
+
+				int i = 0, res = 0;
+				for (int house : houses)
+				{
+					while (i < heaters.length - 1 && heaters[i] + heaters[i + 1] <= house * 2)
+					{
+						i++;
+					}
+					res = Math.max(res, Math.abs(heaters[i] - house));
+				}
+
+				return res;
+			}
+		}
+		*/
 	}
 }
