@@ -2,6 +2,7 @@ package leetcode.easy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Created by zhangsw on 2017/11/23.
@@ -40,5 +41,14 @@ public class KeyboardRow
 			}
 			return list.toArray(new String[]{});
 		}
+
+		//一行版，没看懂
+		/*
+		public String[] findWords(String[] words)
+		{
+			return Stream.of(words).filter(s -> s.toLowerCase().matches("[qwertyuiop]*|[asdfghjkl]*|[zxcvbnm]*"))
+			             .toArray(String[]::new);
+		}
+		*/
 	}
 }
