@@ -17,5 +17,13 @@ public class NumberComplement
 			}
 			return result;
 		}
+
+		//一行版
+		/*
+		public int findComplement(int num)
+		{
+			return ~num & ((Integer.highestOneBit(num) << 1) - 1);
+		}
+		*/
 	}
 }
