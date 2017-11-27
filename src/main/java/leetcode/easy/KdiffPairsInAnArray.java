@@ -1,9 +1,6 @@
 package leetcode.easy;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by zhangsw on 2017/11/27.
@@ -65,5 +62,30 @@ public class KdiffPairsInAnArray
 
 			return starters.size();
 		}
+
+		//类似于滑动窗口的解法
+		/*
+		public int findPairs(int[] nums, int k)
+		{
+			int ans = 0;
+			Arrays.sort(nums);
+			for (int i = 0, j = 0; i < nums.length; i++)
+			{
+				for (j = Math.max(j, i + 1); j < nums.length && (long) nums[j] - nums[i] < k; j++)
+				{
+					;
+				}
+				if (j < nums.length && (long) nums[j] - nums[i] == k)
+				{
+					ans++;
+				}
+				while (i + 1 < nums.length && nums[i] == nums[i + 1])
+				{
+					i++;
+				}
+			}
+			return ans;
+		}
+		*/
 	}
 }
