@@ -1,7 +1,9 @@
 package leetcode.easy;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by zhangsw on 2017/11/27.
@@ -11,6 +13,7 @@ public class KdiffPairsInAnArray
 	class Solution
 	{
 		//map解法
+		/*
 		public int findPairs(int[] nums, int k) {
 			if (nums == null || nums.length == 0 || k < 0)   return 0;
 
@@ -34,6 +37,33 @@ public class KdiffPairsInAnArray
 			}
 
 			return count;
+		}
+		*/
+
+		//set解法，写的比较优雅
+		public int findPairs(int[] nums, int k)
+		{
+			if (k < 0)
+			{
+				return 0;
+			}
+
+			Set<Integer> starters = new HashSet<Integer>();
+			Set<Integer> uniqs = new HashSet<Integer>();
+			for (int i = 0; i < nums.length; i++)
+			{
+				if (uniqs.contains(nums[i] - k))
+				{
+					starters.add(nums[i] - k);
+				}
+				if (uniqs.contains(nums[i] + k))
+				{
+					starters.add(nums[i]);
+				}
+				uniqs.add(nums[i]);
+			}
+
+			return starters.size();
 		}
 	}
 }
