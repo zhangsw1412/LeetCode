@@ -11,5 +11,13 @@ public class StudentAttendanceRecord_I
 		{
 			return s.split("A").length < 3 && s.indexOf("AA") == -1 && s.indexOf("LLL") == -1;
 		}
+
+		//正则表达式版
+		/*
+		public boolean checkRecord(String s)
+		{
+			return !s.matches(".*LLL.*|.*A.*A.*");
+		}
+		*/
 	}
 }
