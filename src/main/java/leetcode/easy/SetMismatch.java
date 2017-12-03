@@ -29,5 +29,25 @@ public class SetMismatch
 			}
 			return new int[]{missing + sum - (1 + a.length) * a.length / 2, missing};
 		}
+
+		//简洁版
+		/*
+		public int[] findErrorNums(int[] nums)
+		{
+			Set<Integer> set = new HashSet<>();
+			int duplicate = 0, n = nums.length;
+			long sum = (n * (n + 1)) / 2;
+			for (int i : nums)
+			{
+				if (set.contains(i))
+				{
+					duplicate = i;
+				}
+				sum -= i;
+				set.add(i);
+			}
+			return new int[]{duplicate, (int) sum + duplicate};
+		}
+		*/
 	}
 }
