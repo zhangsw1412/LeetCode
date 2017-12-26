@@ -7,6 +7,17 @@ public class JumpGame
 {
 	class Solution
 	{
+		//简洁版
+		public boolean canJump(int[] a)
+		{
+			int i = 0;
+			for (int reach = 0; i < a.length && i <= reach; i++)
+			{
+				reach = Math.max(reach, i + a[i]);
+			}
+			return i == a.length;
+		}
+		/*
 		public boolean canJump(int[] a)
 		{
 			if (a == null)
@@ -33,5 +44,6 @@ public class JumpGame
 			}
 			return true;
 		}
+		*/
 	}
 }
