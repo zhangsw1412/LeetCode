@@ -7,6 +7,20 @@ public class RemoveDuplicatesFromSortedArray_II
 {
 	class Solution
 	{
+		//简洁版
+		public int removeDuplicates(int[] nums)
+		{
+			int i = 0;
+			for (int n : nums)
+			{
+				if (i < 2 || n > nums[i - 2])
+				{
+					nums[i++] = n;
+				}
+			}
+			return i;
+		}
+		/*
 		public int removeDuplicates(int[] a)
 		{
 			if (a == null || a.length == 0)
@@ -24,5 +38,6 @@ public class RemoveDuplicatesFromSortedArray_II
 			}
 			return counter;
 		}
+		*/
 	}
 }
