@@ -27,12 +27,12 @@ public class UniqueBinarySearchTrees_II
 	{
 		public List<TreeNode> generateTrees(int n)
 		{
-			return genTreeList(1, n);
+			return n < 1 ? new ArrayList<>() : genTreeList(1, n);
 		}
 
 		private List<TreeNode> genTreeList(int start, int end)
 		{
-			List<TreeNode> list = new ArrayList<TreeNode>();
+			List<TreeNode> list = new ArrayList<>();
 			if (start > end)
 			{
 				list.add(null);
