@@ -25,6 +25,22 @@ public class ValidateBinarySearchTree
 
 	class Solution
 	{
+		//递归解法
+		public boolean isValidBST(TreeNode root)
+		{
+			return help(root, null, null);
+		}
+
+		private boolean help(TreeNode p, Integer low, Integer high)
+		{
+			if (p == null)
+			{
+				return true;
+			}
+			return (low == null || p.val > low) && (high == null || p.val < high) && help(p.left, low, p.val) && help(
+					p.right, p.val, high);
+		}
+		/*
 		public boolean isValidBST(TreeNode root)
 		{
 			List<Integer> list = new ArrayList<>();
@@ -49,5 +65,6 @@ public class ValidateBinarySearchTree
 			list.add(node.val);
 			inOrder(list, node.right);
 		}
+		*/
 	}
 }
