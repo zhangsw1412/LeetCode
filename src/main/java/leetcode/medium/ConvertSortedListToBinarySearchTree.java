@@ -42,6 +42,38 @@ public class ConvertSortedListToBinarySearchTree
 			{
 				return null;
 			}
+			ListNode slow = head, fast = head, slowPre = null;
+			while (fast.next != null && fast.next.next != null)
+			{
+				slowPre = slow;
+				slow = slow.next;
+				fast = fast.next.next;
+			}
+
+			if (slowPre != null)
+			{
+				slowPre.next = null;
+			}
+			if (slow == null)
+			{
+				return null;
+			}
+			TreeNode node = new TreeNode(slow.val);
+			if (head != slow)
+			{
+				node.left = sortedListToBST(head);
+			}
+			node.right = sortedListToBST(slow.next);
+			return node;
+		}
+
+		/*
+		public TreeNode sortedListToBST(ListNode head)
+		{
+			if (head == null)
+			{
+				return null;
+			}
 			return toBST(head, null);
 		}
 
@@ -64,5 +96,6 @@ public class ConvertSortedListToBinarySearchTree
 			thead.right = toBST(slow.next, tail);
 			return thead;
 		}
+		*/
 	}
 }
