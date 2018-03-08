@@ -2,6 +2,7 @@ package leetcode.medium;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Created by zhangsw on 2018/3/8.
@@ -25,7 +26,28 @@ public class BinaryTreePreorderTraversal
 
 	class Solution
 	{
+		//迭代版
+		public List<Integer> preorderTraversal(TreeNode node)
+		{
+			List<Integer> list = new LinkedList<>();
+			Stack<TreeNode> rights = new Stack<>();
+			while (node != null)
+			{
+				list.add(node.val);
+				if (node.right != null)
+				{
+					rights.push(node.right);
+				}
+				node = node.left;
+				if (node == null && !rights.isEmpty())
+				{
+					node = rights.pop();
+				}
+			}
+			return list;
+		}
 		//递归版
+		/*
 		public List<Integer> preorderTraversal(TreeNode root)
 		{
 			List<Integer> list = new LinkedList<>();
@@ -43,5 +65,6 @@ public class BinaryTreePreorderTraversal
 			preorder(node.left, list);
 			preorder(node.right, list);
 		}
+		*/
 	}
 }
