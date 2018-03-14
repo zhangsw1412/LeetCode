@@ -48,7 +48,7 @@ public class BinarySearchTreeIterator
 			temp = temp.right;
 			while (temp != null)
 			{
-				stack.push(temp.right);
+				stack.push(temp);
 				temp = temp.left;
 			}
 			return val;
