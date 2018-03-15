@@ -1,9 +1,6 @@
 package leetcode.medium;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by zhangsw on 2018/3/15.
@@ -35,5 +32,15 @@ public class LargestNumber
 			}
 			return stringBuilder.toString();
 		}
+
+		//三行版，没看懂
+		/*
+		public String largestNumber(int[] num)
+		{
+			String[] array = Arrays.stream(num).mapToObj(String::valueOf).toArray(String[]::new);
+			Arrays.sort(array, (String s1, String s2) -> (s2 + s1).compareTo(s1 + s2));
+			return Arrays.stream(array).reduce((x, y) -> x.equals("0") ? y : x + y).get();
+		}
+		*/
 	}
 }
