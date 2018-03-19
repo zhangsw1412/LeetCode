@@ -41,12 +41,8 @@ public class BinaryTreeRightSideView
 				{
 					list.add(node.val);
 				}
-				else
-				{
-					list.set(height, node.val);
-				}
-				inOrder(node.left, height + 1, list);
 				inOrder(node.right, height + 1, list);
+				inOrder(node.left, height + 1, list);
 			}
 		}
 	}
