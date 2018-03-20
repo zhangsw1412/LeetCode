@@ -56,6 +56,7 @@ public class BitwiseANDofNumbersRange
 		/*
 		如果m小于n就进行循环，n与上n-1，相当于去掉最低位的1，n就这样每次去掉最低位的1，如果小于等于m了，返回此时的n即可
 		 */
+		/*
 		public int rangeBitwiseAnd(int m, int n)
 		{
 			while (m < n)
@@ -64,5 +65,6 @@ public class BitwiseANDofNumbersRange
 			}
 			return n;
 		}
+		*/
 	}
 }
