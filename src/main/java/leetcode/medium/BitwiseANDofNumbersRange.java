@@ -28,6 +28,7 @@ public class BitwiseANDofNumbersRange
 		/*
 		直接平移m和n，每次向右移一位，直到m和n相等，记录下所有平移的次数i，然后再把m左移i位即为最终结果
 		 */
+		/*
 		public int rangeBitwiseAnd(int m, int n)
 		{
 			int counter = 0;
@@ -39,5 +40,17 @@ public class BitwiseANDofNumbersRange
 			}
 			return m << counter;
 		}
+		*/
+
+		/*
+		递归版
+		如果n大于m，那么就对m和n分别除以2，并且调用递归函数，对结果再乘以2
+		 */
+		/*
+		public int rangeBitwiseAnd(int m, int n)
+		{
+			return m < n ? rangeBitwiseAnd(m >> 1, n >> 1) << 1 : m;
+		}
+		*/
 	}
 }
