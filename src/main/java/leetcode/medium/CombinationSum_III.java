@@ -23,12 +23,13 @@ public class CombinationSum_III
 
 		private void backtrack(int k, int n, List<Integer> list, List<List<Integer>> lists, int start)
 		{
-			if (list.size() == k)
+			if (list.size() > k)
 			{
-				if (n == 0)
-				{
-					lists.add(new ArrayList<>(list));
-				}
+				return;
+			}
+			if (list.size() == k && n == 0)
+			{
+				lists.add(new ArrayList<>(list));
 				return;
 			}
 			for (int i = start; i < 10; i++)
