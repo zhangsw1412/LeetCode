@@ -31,5 +31,28 @@ public class ProductOfArrayExceptSelf
 			}
 			return b;
 		}
+
+		//递归版，没看懂
+		/*
+		public int[] productExceptSelfRev(int[] nums)
+		{
+			multiply(nums, 1, 0, nums.length);
+
+			return nums;
+		}
+
+		private int multiply(int[] a, int fwdProduct, int indx, int N)
+		{
+			int revProduct = 1;
+			if (indx < N)
+			{
+				revProduct = multiply(a, fwdProduct * a[indx], indx + 1, N);
+				int cur = a[indx];
+				a[indx] = fwdProduct * revProduct;
+				revProduct *= cur;
+			}
+			return revProduct;
+		}
+		*/
 	}
 }
