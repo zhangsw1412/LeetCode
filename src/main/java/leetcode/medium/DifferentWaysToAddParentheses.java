@@ -1,6 +1,7 @@
 package leetcode.medium;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -52,5 +53,54 @@ public class DifferentWaysToAddParentheses
 			}
 			return list;
 		}
+
+		/*
+		上述解法对子问题存在重复计算，效率不高，这里采用备忘录的自顶向下法，将子问题的计算结果保存下来，
+		下次遇到同样的子问题就直接从备忘录中取出，而免去繁琐的计算，具体的做法是新建一个 hashmap，
+		将子字符串放入 hashmap 中，对应的计算结果放入 value 中
+		 */
+		/*
+		private HashMap<String, List<Integer>> hm = new HashMap<String, List<Integer>>();
+
+		public List<Integer> diffWaysToCompute(String input)
+		{
+			if (hm.containsKey(input))
+			{
+				return hm.get(input);
+			}
+			List<Integer> res = new ArrayList<Integer>();
+			for (int i = 0; i < input.length(); i++)
+			{
+				char ch = input.charAt(i);
+				if (ch == '+' || ch == '-' || ch == '*')
+				{
+					for (Integer l : diffWaysToCompute(input.substring(0, i)))
+					{
+						for (Integer r : diffWaysToCompute(input.substring(i + 1, input.length())))
+						{
+							if (ch == '+')
+							{
+								res.add(l + r);
+							}
+							else if (ch == '-')
+							{
+								res.add(l - r);
+							}
+							else
+							{
+								res.add(l * r);
+							}
+						}
+					}
+				}
+			}
+			if (res.size() == 0)
+			{
+				res.add(Integer.valueOf(input));
+			}
+			hm.put(input, res);
+			return res;
+		}
+		*/
 	}
 }
