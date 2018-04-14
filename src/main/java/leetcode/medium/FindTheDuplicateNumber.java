@@ -37,5 +37,31 @@ public class FindTheDuplicateNumber
 			}
 			return min;
 		}
+
+		//快慢指针法，和找有环单链表的环路起点那个题一个思路
+		/*
+		public int findDuplicate(int[] nums)
+		{
+			if (nums.length > 1)
+			{
+				int slow = nums[0];
+				int fast = nums[nums[0]];
+				while (slow != fast)
+				{
+					slow = nums[slow];
+					fast = nums[nums[fast]];
+				}
+
+				fast = 0;
+				while (fast != slow)
+				{
+					fast = nums[fast];
+					slow = nums[slow];
+				}
+				return slow;
+			}
+			return -1;
+		}
+		*/
 	}
 }
