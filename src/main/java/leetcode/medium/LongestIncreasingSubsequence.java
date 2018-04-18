@@ -31,5 +31,29 @@ public class LongestIncreasingSubsequence
 			}
 			return max;
 		}
+
+		//二分查找版，时间复杂度O(nlogn)，没看懂
+		/*
+		public int lengthOfLIS(int[] nums)
+		{
+			int[] dp = new int[nums.length];
+			int len = 0;
+
+			for (int x : nums)
+			{
+				int i = Arrays.binarySearch(dp, 0, len, x);
+				if (i < 0)
+				{
+					i = -(i + 1);
+				}
+				dp[i] = x;
+				if (i == len)
+				{
+					len++;
+				}
+			}
+			return len;
+		}
+		*/
 	}
 }
