@@ -902,7 +902,7 @@ MAT(Memory Analyzer Tool)是一款内存分析器工具，它是一个快速且�
 
 #### shallow heap及retained heap
 
-- `shallow heap`：对象本身占用内存的大小，也就是对象头加成员变量（不是成员变量的值）的总和，如一个引用占用32或64bit，一个integer占4bytes，Long占8bytes等。如简单的一个类里面只有一个成员变量`int i`，那么这个类的`shallo size`是12字节，因为对象头是8字节，成员变量`int`是4字节。常规对象（非数组）的Shallow size由其成员变量的数量和类型决定，数组的shallow size有数组元素的类型（对象类型、基本类型）和数组长度决定。
+- `shallow heap`：对象本身占用内存的大小，也就是对象头加成员变量（不是成员变量的值）的总和，如一个引用占用32或64bit，一个integer占4bytes，Long占8bytes等。如简单的一个类里面只有一个成员变量`int i`，那么这个类的`shallo size`是12字节，因为对象头是8字节，成员变量`int`是4字节。常规对象（非数组）的Shallow size由其成员变量的数量和类型决定，数组的shallow size由数组元素的类型（对象类型、基本类型）和数组长度决定。
 - `retained heap`：如果一个对象被释放掉，那会因为该对象的释放而减少引用进而被释放的所有的对象（包括被递归释放的）所占用的heap大小，即对象X被垃圾回收器回收后能被GC从内存中移除的所有对象之和。相对于shallow heap，Retained heap可以更精确的反映一个对象实际占用的大小（若该对象释放，retained heap都可以被释放）。
 
 #### outgoing references与incoming references
